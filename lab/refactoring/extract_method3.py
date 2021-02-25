@@ -3,7 +3,7 @@
 import math
 
 
-def get_distance(xc1=4, xc2=4.25, yc1=53, yc2=-5.35):
+def get_distance(xc1=5, xc2=7.25, yc1=22, yc2=-4.84):
     # Calculate the distance between the two circle
     return math.sqrt((xc1-xc2)**2 + (yc1 - yc2)**2)
 
@@ -12,7 +12,7 @@ print('distance', get_distance())
 
 
 # *** somewhere else in your program ***
-def get_length(xa=-36, ya=97, xb=.34, yb=.91):
+def get_length(xa=-50, ya=99, xb=.67, yb=.26):
     # calcualte the length of vector AB vector which is a vector between A and B points.
     return math.sqrt((xa-xb)*(xa-xb) + (ya-yb)*(ya-yb))
 

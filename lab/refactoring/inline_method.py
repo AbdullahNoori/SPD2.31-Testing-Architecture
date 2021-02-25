@@ -4,7 +4,7 @@
 
 class Person:
 
-    LEGAL_DRINKING_AGE = 18
+    LEGAL_DRINKING_AGE = 21
 
     def __init__(self, my_age):
         '''Instantiates a new Person object with an age (a float value).'''
@@ -22,9 +22,9 @@ def enter_night_club(individual):
     if individual.age > Person.LEGAL_DRINKING_AGE:
         print("Allowed to enter.")
     else:
-        print("Enterance of minors is denited.")
+        print("Sorry, better luck next time! Minor, age is denied.")
 
 
 if __name__ == "__main__": 
-    person = Person(17.9)
+    person = Person(19.9)
     enter_night_club(person)

@@ -1,9 +1,9 @@
-"""Written by Kamran Bigdely
+"""Written by Kamran Bigdely.
 Example for Compose Methods: Extract Method."""
 import math 
 
 
-def get_grades(n_students):
+def user_input(n_students):
     """Prompt the user to input the grades for n students.
 
     Args:
@@ -11,14 +11,18 @@ def get_grades(n_students):
 
     Returns: a list of floating point values
     """
-    grade_list = []
+    gradeList = []
+    total = 0
     # Get the inputs from the user
-    for _ in range(n_students):
-        grade_list.append(int(input('Enter a number: ')))
-    return grade_list
+    for _ in range(0, n_students):
+        user_input = int(input('Enter a number: '))
+        gradeList.append(user_input)
+        total += user_input
+    
+    return gradeList, total
 
 
-def compute_stats(grade_list):
+def compute_stats(gradeList, mean):
     """Compute and return the mean and standard deviation of the grades.
 
     Args:
@@ -27,16 +31,16 @@ def compute_stats(grade_list):
     Returns: a Tuple[float] of the mean and standard deviation.
     """
     # Calculate the mean and standard deviation of the grades
-    mean = sum(grade_list) / len(grade_list)
-    sd = 0 # standard deviation
+    # mean = sum(gradeList) / len(gradeList, mean)
+    # sd = 0 # standard deviation
     sum_of_sqrs = 0
-    for grade in grade_list:
+    for grade in gradeList:
         sum_of_sqrs += (grade - mean) ** 2
-    sd = math.sqrt(sum_of_sqrs / len(grade_list))
-    return mean, sd
+ 
+    return math.sqrt(sum_of_sqrs / len(gradeList))
 
 
-def print_stat(n_students):
+def print_stat():
     """Display the mean and standard deviation for the class.
     
     Args:
@@ -45,16 +49,20 @@ def print_stat(n_students):
     Returns: None.
     """
     # get the grades
-    grade_list = get_grades(n_students)
+    gradeList, total = user_input(3)
     # compute mean and standard deviation
-    mean, sd = compute_stats(grade_list)
+    mean = total / len(gradeList)
+    # return the calculated sd 
+    sd = compute_stats(gradeList, mean)
     # print out the mean and standard deviation in a nice format.
     print("****** Grade Statistics ******")
     print(f"The grades's mean is: {mean}")
-    print(f"The population standard deviation of grades is: {round(sd, 3)}")
+    print('The population standard deviation of grades is: ', round(sd, 3))
     print("****** END ******")
 
 
 if __name__ == "__name__":
-    n_students = 5
-    print_stat(n_students)
+    n_students = 7
+print_stat()
+
+
