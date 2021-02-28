@@ -7,4 +7,6 @@ def calculate_kinetic_energy(mass, velocity):
 def test_calculate_kinetic_energy():
     mass = 10 # [kg]
     velocity = 4 # [m/s]
-    assert calculate_kinetic_energy(mass, velocity) == 80   
+    assert calculate_kinetic_energy(mass, velocity) == 80
+
+   
