@@ -26,5 +26,5 @@ def enter_night_club(individual):
 
 
 if __name__ == "__main__": 
-    person = Person(19.9)
+    person = Person(19.5)
     enter_night_club(person)
