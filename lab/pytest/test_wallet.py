@@ -4,7 +4,7 @@ import pytest
 from wallet import Wallet, InsufficientAmount
 
 
-def test_default_initial_amount():
+def test_default_initial_amount():s
     wallet = Wallet()
     assert wallet.balance == 0
 
