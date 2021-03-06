@@ -64,7 +64,7 @@ def is_winner(bo, le):
     """ Given a board and a player’s letter, this function returns True if that player has won.
     We use bo instead of board and le instead of letter so we don’t have to type as much."""
     return ((bo[7] == le and bo[8] == le and bo[9] == le) or # across the top
-            (bo[4] == le and bo[5] == le and bo[6] == le) or # across the middle    # TODO: Fix the indentation of this lines and the following ones.
+            (bo[4] == le and bo[5] == le and bo[6] == le) or # across the middle    
             (bo[1] == le and bo[2] == le and bo[3] == le) or # across the bottom
             (bo[7] == le and bo[4] == le and bo[1] == le) or # down the left side
             (bo[8] == le and bo[5] == le and bo[2] == le) or # down the middle
@@ -128,7 +128,7 @@ def get_computer_move(board, computerLetter): # TODO: W0621: Redefining name 'co
                 return i
     # Try to take one of the corners, if they are free.
     move = choose_random_move_from_list(board, [1, 3, 7, 9])
-    if move != None: # TODO: Fix it (Hint: Comparisons to singletons like None should always be done with is or is not, never the equality/inequality operators.)
+    if move is None: # TODO: Fix it (Hint: Comparisons to singletons like None should always be done with is or is not, never the equality/inequality operators.)
         return move
 
     # Try to take the center, if it is free.
@@ -152,7 +152,7 @@ def is_board_full(board):
 # TODO: The following mega code block is a huge hairy monster. Break it down 
 # into smaller methods. Use TODO s and the comment above each section as a guide 
 # for refactoring.
-def run_game():
+def run_the_game():
     """function to run game"""
     while True:
         """ Reset the board"""
@@ -161,10 +161,9 @@ def run_game():
         turn = first_player()
         print('The ' + turn + ' will go first.')
         game_is_on = True # TODO: Study how this variable is used. Does it ring a bell? (which refactoring method?) 
-                            #       See whether you can get rid of this 'flag' variable. If so, remove it.
-
+                          #See whether you can get rid of this 'flag' variable. If so, remove it.
         while game_is_on: # TODO: Usually (not always), loops (or their content) are good candidates to be extracted into their own function.
-                            #       Use a meaningful name for the function you choose.
+                          #Use a meaningful name for the function you choose.
             if turn == 'player':
                 # Player’s turn.
                 draw_board(theBoard)
@@ -201,5 +200,5 @@ def run_game():
         if not play_again():
             break
 
-run_game()
+run_the_game()
 
